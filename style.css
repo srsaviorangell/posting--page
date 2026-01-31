@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b0b0d;
+  --panel: #111114;
+  --muted: #9aa0a6;
+  --text: #e6e7e8;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  padding: 32px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 16px;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border-color: rgba(255,255,255,0.06);
+}
+
+button {
+  align-self: flex-start;
+  padding: 10px 16px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+section {
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--panel);
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+small,
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+/* posts list */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.post {
+  position: relative;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  border-left: 4px solid transparent;
+}
+
+.post:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 34px rgba(124,58,237,0.12);
+  border-left-color: #7c3aed; /* vibrante */
+}
+
+.post-title {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+}
+
+.post-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.info-btn {
+  margin-left: auto;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(99,102,241,0.06));
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.info-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.12);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(2,2,2,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  max-width: 680px;
+  width: calc(100% - 48px);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* ajuste de acessibilidade visual */
+.muted { opacity: 0.95 }

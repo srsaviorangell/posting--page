@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postagem de Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Meu Blog</h1>
+      <nav aria-label="principal"></nav>
+    </header>
+
+    <main>
+      <section>
+        <form id="form-post">
+
+          <label for="titulo">Título do post</label>
+          <input type="text" id="titulo" required>
+
+          <label for="conteudo">Conteúdo</label>
+          <textarea id="conteudo" rows="5" required></textarea>
+
+          <button type="submit">Publicar</button>
+
+        </form>
+      </section>
+
+      <section>
+        <h2 class="muted">Posts recentes</h2>
+        <div id="posts-list" class="posts" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="muted">Projeto de Certificação 2 – SENAI</p>
+    </footer>
+  </div>
+
+  <!-- Modal informativo -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="modal-close" class="modal-close" aria-label="Fechar">×</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
